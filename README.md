@@ -41,8 +41,7 @@ curl -X POST http://127.0.0.1:8000/simulate \
 Response:
 
 ```json
-{"steps":164,
-"total_reward":91.74613583330358,"gpu_utilization":0.7580645161290323,"mean_wait":19.9,
+{"steps":164, "total_reward":91.74613583330358,"gpu_utilization":0.7580645161290323,"mean_wait":19.9,
 "mean_slowdown":2.9657083348153392,"throughput":0.3225806451612903,"completed_jobs":40}
 ```
 
