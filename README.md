@@ -148,7 +148,7 @@ This design gives PPO dense learning signals during long episodes while keeping 
 
 PPO achieved near-parity with the heuristic baselines on the GPU scheduling benchmark.
 
-The below graphs report the average evaluation metrics for each policy:
+The below graphs report the average evaluation metrics for each policy.
 
 ![GPU Utilization](./artifacts/plots/gpu_utilization.png)
 
