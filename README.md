@@ -94,7 +94,7 @@ Optimize for:
 ## Directory Structure 
 
 ```
-gpu_scheduler_rl/
+gpu_scheduler/
 ├── requirements.txt
 ├── Dockerfile 
 ├── README.md
