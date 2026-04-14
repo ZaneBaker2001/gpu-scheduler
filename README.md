@@ -128,18 +128,18 @@ gpu_scheduler_rl/
 The reward function combines step-level shaping with episode-level scheduling metrics.
 
 Step-level rewards encourage the agent to:
-- launch feasible jobs,
-- use available GPUs efficiently,
-- avoid invalid actions,
-- avoid advancing time while schedulable jobs remain.
+- launch feasible jobs
+- use available GPUs efficiently
+- avoid invalid actions
+- avoid advancing time while schedulable jobs remain
 
 When time advances, the reward also reflects short-horizon system behavior such as GPU utilization, job completions, queue pressure, and cluster idleness.
 
 At the end of the episode, the environment adds a terminal reward based on overall scheduler performance:
-- higher GPU utilization,
-- higher throughput,
-- lower mean wait time,
-- lower mean slowdown.
+- higher GPU utilization
+- higher throughput
+- lower mean wait time
+- lower mean slowdown
 
 This design gives PPO dense learning signals during long episodes while keeping the optimization target aligned with real scheduling objectives.
 
@@ -151,15 +151,15 @@ PPO achieved near-parity with the heuristic baselines on the GPU scheduling benc
 
 The below graphs illustrate the verage evaluation metrics for each policy:
 
-![GPU Utilization](./gpu_scheduler/artifacts/plots/gpu_utilization.png)
+![GPU Utilization](./artifacts/plots/gpu_utilization.png)
 
-![Mean Slowdown](./gpu_scheduler/artifacts/plots/mean_slowdown.png)
+![Mean Slowdown](./artifacts/plots/mean_slowdown.png)
 
-![Mean Wait](./gpu_scheduler/artifacts/plots/mean_wait.png)
+![Mean Wait](./artifacts/plots/mean_wait.png)
 
-![Throughput](./gpu_scheduler/artifacts/plots/throughput.png)
+![Throughput](./artifacts/plots/throughput.png)
 
-![Reward Comparison](./gpu_scheduler/artifacts/plots/reward_comparison.png)
+![Reward Comparison](./artifacts/plots/reward_comparison.png)
 
 PPO did not outperform the best heuristic, but it learned a competitive policy with strong overall performance. FCFS and Best-Fit GPU produced the highest utilization and throughput, while SJF achieved the best latency metrics. PPO landed between these extremes, showing that an RL scheduler can recover a balanced scheduling strategy without being manually programmed around a single dispatch rule.
 
