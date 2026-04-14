@@ -91,12 +91,6 @@ Optimize for:
 - `priority_medium/`: training, evaluation, and experiment runners
 - `priority_low/`: config and plotting
 
-## Install
-
-```bash
-pip install -r requirements.txt
-```
-
 ## Directory Structure 
 
 ```
