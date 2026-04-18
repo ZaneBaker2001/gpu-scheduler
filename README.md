@@ -189,3 +189,11 @@ A sample PPO rollout produced the following episode metrics:
 - Completed jobs: 40
 
 This illustrates the behavior of a trained policy on a single scheduling episode. Final performance comparisons are based on averages over many evaluation episodes rather than a single rollout.
+
+### Reward Distribution  
+![Reward Distribution](./artifacts/plots/reward_histogram.png) 
+- PPO is the most consistent performer. Its distribution is tightly concentrated between ~425–432, with a sharp peak around 428–430. This low variance means the policy behaves predictably across episodes — a valuable property in production scheduling.
+- SJF has the highest ceiling but widest spread. It reaches rewards up to ~450 and has a notably bimodal distribution, peaking around 432–433 and again around 439–440. That spread suggests SJF performs excellently when job size distributions favor it, but is more sensitive to workload variation.
+- Best-Fit GPU is broadly distributed. Its histogram is relatively flat from ~428 to ~445, indicating inconsistent episode-to-episode performance. High reward is achievable but not reliable.
+- FCFS skews right. It has a long tail stretching toward 450, meaning it occasionally produces very high-reward episodes, but its central mass sits in the mid-range. Good average, but unpredictable.
+- Random is unsurprisingly the weakest. Its distribution is centered lower and spread thin, with no strong concentration at high rewards.
