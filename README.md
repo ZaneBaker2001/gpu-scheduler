@@ -13,12 +13,20 @@ A GPU cluster for scheduling optimization.
 
 ## Quick Start 
 
+Clone the repository:
+```bash
+git clone https://github.com/ZaneBaker2001/gpu-scheduler.git
+cd gpu-scheduler
+```
+Install the required dependencies:
 ```bash
 pip3 install -r requirements.txt
+```
+Run the agent:
+```bash
 python3 -m priority_medium.train
 python3 -m priority_medium.evaluate
 python3 -m priority_medium.rollout
-python3 -m uvicorn api.app:app --reload
 ```
 
 ## Docker Setup 
@@ -29,8 +37,14 @@ docker run --rm -it -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m
 docker run --rm -it -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m priority_medium.evaluate
 docker run --rm -it -p 8000:8000 -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m uvicorn api.app:app --host 0.0.0.0 --port 8000
 ```
+## API
 
-## Requests 
+Start the API:
+```bash
+python3 -m uvicorn api.app:app --reload
+```
+
+### Requests 
 Sample simulation request: 
 
 ```curl
