@@ -29,6 +29,15 @@ python3 -m priority_medium.evaluate
 python3 -m priority_medium.rollout
 ```
 
+## Docker Setup 
+
+```docker
+docker build -t gpu-scheduler .
+docker run --rm -it -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m priority_medium.train
+docker run --rm -it -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m priority_medium.evaluate
+docker run --rm -it -p 8000:8000 -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m uvicorn api.app:app --host 0.0.0.0 --port 8000
+```
+
 ## API
 
 Start the API:
@@ -147,15 +156,6 @@ At the end of the episode, the environment adds a terminal reward based on overa
 - lower mean slowdown
 
 This design gives PPO dense learning signals during long episodes while keeping the optimization target aligned with real scheduling objectives.
-
-## Docker Setup 
-
-```docker
-docker build -t gpu-scheduler .
-docker run --rm -it -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m priority_medium.train
-docker run --rm -it -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m priority_medium.evaluate
-docker run --rm -it -p 8000:8000 -v "$(pwd)/artifacts:/app/artifacts" gpu-scheduler python -m uvicorn api.app:app --host 0.0.0.0 --port 8000
-```
 
 ## Results 
 
