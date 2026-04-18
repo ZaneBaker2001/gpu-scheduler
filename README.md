@@ -1,6 +1,6 @@
 # GPU Scheduler 
 
-A GPU cluster for scheduling optimization.
+A reinforcement learning–based job scheduler for GPU clusters, trained with Proximal Policy Optimization (PPO) via Stable-Baselines3. It simulates a realistic cluster environment where ML training jobs compete for limited GPU resources, and learns a dispatch policy that balances utilization, throughput, and job latency, without being hard-coded around any single scheduling heuristic. The trained agent is benchmarked against classical baselines (FCFS, SJF, Best-Fit GPU, Random) and served via a FastAPI endpoint for simulation and real-time action prediction.
 
 ## Tech stack
 
